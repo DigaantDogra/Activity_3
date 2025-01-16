@@ -11,7 +11,8 @@ import SwiftUI
 struct IMDBexApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+//            StartTab()
+            MovieListView()
         }
     }
 }
