@@ -1,0 +1,35 @@
+
+[
+    {
+    "id": 1,
+    "title": "2018 Ford Fusion",
+    "cost": 12000,
+    "productImageName": "https://smartcdn.gprod.postmedia.digital/driving/wp-content/uploads/2018/07/dscn3172.jpg",
+    "productDescription": "Driven 263,500 km. Manual transmission. Petrol",
+    "sellerDescription": "Turing full clean title . First owner from honda  .. need 500$ for safety . ..break . Rotors rear . 2 front tires Nothing else With 263000km Or 10700 with safety Price is firm "
+    },
+    {
+    "id": 2,
+    "title": "XS Coat",
+    "cost": 230,
+    "productImageName": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSz_cRA11gB35gJEwcIqosnc_V6f1_PNJVtvA&s",
+    "productDescription": "Long black coat. Size 4-6. ",
+    "sellerDescription": "Perfect condition."
+    },
+    {
+    "id": 3,
+    "title": "IPAD PRO 13 inch M2",
+    "cost": 1200,
+    "productImageName": "https://www.techguide.com.au/wp-content/uploads/2022/10/iPadProM2Review12.jpeg",
+    "productDescription": "New condition.",
+    "sellerDescription": "Bought it 2 years ago now I dont need it."
+    },
+    {
+    "id": 4,
+    "title": "YONEX Badminton racquet",
+    "cost": 30,
+    "productImageName": "https://static.fbshop.vn/wp-content/uploads/2024/03/z5288693376199_99b5c487afd3ad57bf072da71602b54d.jpg",
+    "productDescription": "YONEX Astrox 88 play",
+    "sellerDescription": "Got it in present. Good Condition"
+    }
+]

@@ -8,7 +8,7 @@
 import Foundation
 
 @Observable
-class MovieListViewModel {
+class HomeViewModel {
     enum FetchStatus{
         case notStarted
         case fetching
@@ -20,14 +20,14 @@ class MovieListViewModel {
     
     private let fetcher = FetchService() // for running the fetch service functions
     
-    var movie: [Movie]? = nil
+    var products: [Product]? = nil
     
     func getData() async {
         status = .fetching
         print("Still fetching")
         
         do{
-            movie = try await fetcher.fetchMovie()
+            products = try await fetcher.fetchProduct()
             print("Fetched")
             
             status = .success

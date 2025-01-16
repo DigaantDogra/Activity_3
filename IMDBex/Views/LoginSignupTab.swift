@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct StartTab: View {
+struct LoginSignupTab: View {
     @State private var login = true
     var body: some View {
         if login{
@@ -19,5 +19,5 @@ struct StartTab: View {
 }
 
 #Preview {
-    StartTab()
+    LoginSignupTab()
 }

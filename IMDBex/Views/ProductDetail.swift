@@ -8,12 +8,12 @@
 import Foundation
 
 import SwiftUI
-struct MovieDetailView: View {
-    let movie: Movie
+struct ProductDetail: View {
+    let product: Product
     var body: some View {
         ScrollView {
             VStack(alignment: .leading, spacing: 20) {
-                AsyncImage(url: movie.posterImageName) { image in
+                AsyncImage(url: product.productImageName) { image in
                     image
                         .resizable ()
                         .scaledToFill()
@@ -24,26 +24,33 @@ struct MovieDetailView: View {
                 .frame(maxWidth: .infinity, maxHeight: 400)
                 .clipShape(.rect(cornerRadius: 10))
                 .shadow(radius: 8)
+                .padding(.horizontal, 30)
                 
                 VStack(alignment: .leading, spacing: 8) {
-                    Text(movie.title)
+                    Text("$\(product.cost)")
                         .font(.largeTitle)
                         .fontWeight(.bold)
-                    Text("\(movie.genre) - \(movie.releaseYear)")
+                    
+                    Text("\(product.title)")
                         .font(.title2)
-                        .foregroundColor(.gray)
                     Divider()
                     
                     Text("Description")
                         .font(.headline)
-                    Text(movie.description)
+                    Text(product.productDescription)
                         .font(.body)
                         .foregroundColor(.secondary)
                     Spacer()
                     
+                    Text("Seller Description")
+                        .font(.headline)
+                    Text(product.sellerDescription)
+                        .font(.body)
+                        .foregroundColor(.secondary)
+                    
                     HStack {
                         Button(action: {
-                            print("\(movie.title) added to favorites!")
+                            print("\(product.title) added to favorites!")
                         }) {
                             Label("Favorite", systemImage: "heart.fill")
                                 .foregroundColor(.red)
@@ -52,7 +59,7 @@ struct MovieDetailView: View {
                         
                         Button(action: {
                             let activityVC = UIActivityViewController(
-                                activityItems: ["Check out this movie: \(movie.title)!"],
+                                activityItems: ["Check out this movie: \(product.title)!"],
                                 applicationActivities: nil
                         )
                         UIApplication.shared.windows.first?.rootViewController?
@@ -67,11 +74,11 @@ struct MovieDetailView: View {
                 .padding(.horizontal)
             }
         }
-        .navigationTitle(movie.title)
+        .navigationTitle(product.title)
         .navigationBarTitleDisplayMode(.inline)
     }
 }
 
 #Preview {
-    MovieDetailView(movie: FetchService().movies![1])
+    ProductDetail(product: FetchService().products![1])
 }

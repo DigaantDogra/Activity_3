@@ -14,14 +14,14 @@ struct FetchService{
     }
     
     init() {
-        fetchJsonMovie()
+        fetchProductJson()
     }
     
-    private(set) var movies:[Movie]?
+    private(set) var products:[Product]?
     
-    private let baseURL = URL(string: "https://mocki.io/v1/cb6cc05f-d9c2-4310-b46b-9f488d7751b0")!
+    private let baseURL = URL(string: "https://mocki.io/v1/cd78685e-6893-4434-ba38-812130ce5a39")!
     
-    func fetchMovie() async throws -> [Movie]{
+    func fetchProduct() async throws -> [Product]{
         
         // TODO: Fetch data
         let (data, response) = try await URLSession.shared.data(from: baseURL) // making a tuple
@@ -35,21 +35,21 @@ struct FetchService{
         decoder.keyDecodingStrategy = .convertFromSnakeCase
         
         // TODO: Decode data
-        let movieData = try decoder.decode([Movie].self, from: data)
-        print(movieData)
+        let productData = try decoder.decode([Product].self, from: data)
+        print(productData)
         
         print("I have the data")
         // TODO: Return data
-        return movieData
+        return productData
     }
     
-    private mutating func fetchJsonMovie(){
-        if let url = Bundle.main.url(forResource: "movies", withExtension: "json"){
+    private mutating func fetchProductJson(){
+        if let url = Bundle.main.url(forResource: "products", withExtension: "json"){
             do{
                 let data = try Data(contentsOf: url)
                 let decoder = JSONDecoder()
                 decoder.keyDecodingStrategy = .convertFromSnakeCase
-                self.movies = try decoder.decode([Movie].self, from: data)
+                self.products = try decoder.decode([Product].self, from: data)
             }catch{
                 print("Error decoding JSON data: \(error)")
             }
