@@ -12,7 +12,7 @@ struct Movie: Identifiable,Codable{
     let title: String
     let genre: String
     let releaseYear: Int
-    let posterImageName: String
+    let posterImageName: URL
     let description: String
     
     enum MovieKeys: String,CodingKey{
@@ -30,7 +30,7 @@ struct Movie: Identifiable,Codable{
         self.title = try container.decode(String.self, forKey: .title)
         self.genre = try container.decode(String.self, forKey: .genre)
         self.releaseYear = try container.decode(Int.self, forKey: .releaseYear)
-        self.posterImageName = try container.decode(String.self, forKey: .posterImageName)
+        self.posterImageName = try container.decode(URL.self, forKey: .posterImageName)
         self.description = try container.decode(String.self, forKey: .description)
     }
     

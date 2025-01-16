@@ -13,11 +13,16 @@ struct MovieDetailView: View {
     var body: some View {
         ScrollView {
             VStack(alignment: .leading, spacing: 20) {
-                Image(movie.posterImageName)
-                .resizable()
+                AsyncImage(url: movie.posterImageName) { image in
+                    image
+                        .resizable ()
+                        .scaledToFill()
+                } placeholder: {
+                    ProgressView()
+                }
                 .scaledToFit()
                 .frame(maxWidth: .infinity, maxHeight: 400)
-                .cornerRadius(12)
+                .clipShape(.rect(cornerRadius: 10))
                 .shadow(radius: 8)
                 
                 VStack(alignment: .leading, spacing: 8) {

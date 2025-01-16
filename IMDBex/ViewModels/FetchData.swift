@@ -19,7 +19,7 @@ struct FetchService{
     
     private(set) var movies:[Movie]?
     
-    private let baseURL = URL(string: "https://mocki.io/v1/53753ba9-7689-4c45-a27d-7ff2d729ae70")!
+    private let baseURL = URL(string: "https://mocki.io/v1/cb6cc05f-d9c2-4310-b46b-9f488d7751b0")!
     
     func fetchMovie() async throws -> [Movie]{
         

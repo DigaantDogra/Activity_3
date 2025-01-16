@@ -11,12 +11,16 @@ struct MovieView: View {
     let movie: Movie
     var body: some View {
         HStack {
-            Image(movie.posterImageName)
-            .resizable()
+            AsyncImage(url: movie.posterImageName) { image in
+                image
+                    .resizable ()
+                    .scaledToFill()
+            } placeholder: {
+                ProgressView()
+            }
             .scaledToFit()
             .frame(width: 60, height: 90)
-            .cornerRadius(8)
-            .shadow(radius: 4)
+            .clipShape(.rect(cornerRadius: 20))
             
             VStack(alignment: .leading, spacing: 5) {
                 Text(movie.title)
