@@ -21,6 +21,7 @@ class HomeViewModel {
     private let fetcher = FetchService() // for running the fetch service functions
     
     var products: [Product]? = nil
+    var product: Product? = nil
     
     func getData() async {
         status = .fetching
@@ -36,4 +37,20 @@ class HomeViewModel {
             status = .failed(message: "somthing went wrong!")
         }
     }
+    
+    func getData(for id:Int) async {
+        status = .fetching
+        print("Still fetching")
+        
+        do{
+            product = try await fetcher.fetchProduct(for: id)
+            print("Fetched")
+            
+            status = .success
+            print("success")
+        }catch{
+            status = .failed(message: "somthing went wrong!")
+        }
+    }
+    
 }

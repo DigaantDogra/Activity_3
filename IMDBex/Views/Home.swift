@@ -45,7 +45,7 @@ struct Home: View {
                 Button{
                     // Your button action here
                 }label: {
-                    Text("Log-in")
+                    Text("Search")
                         .font(.title3)
                         .fontWeight(.bold)
                         .frame(maxWidth: .infinity)

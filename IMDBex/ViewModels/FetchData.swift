@@ -42,6 +42,30 @@ struct FetchService{
         // TODO: Return data
         return productData
     }
+    // let modURL = baseURL.appending(path: "\(id)")
+    
+    func fetchProduct(for id:Int) async throws -> Product{
+        
+        let modURL = baseURL.appending(path: "\(id)")
+        // TODO: Fetch data
+        let (data, response) = try await URLSession.shared.data(from: baseURL) // making a tuple
+        
+        // TODO: Handle response
+        guard let response = response as? HTTPURLResponse, response.statusCode == 200 else{ // this is gonna give us urlResponse
+            throw FetchError.badResponse
+        }
+        
+        let decoder = JSONDecoder()
+        decoder.keyDecodingStrategy = .convertFromSnakeCase
+        
+        // TODO: Decode data
+        let productData = try decoder.decode(Product.self, from: data)
+        print(productData)
+        
+        print("I have the data")
+        // TODO: Return data
+        return productData
+    }
     
     private mutating func fetchProductJson(){
         if let url = Bundle.main.url(forResource: "products", withExtension: "json"){

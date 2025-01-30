@@ -17,9 +17,9 @@ struct Product: Identifiable,Codable{
     
     enum ProductKeys: String,CodingKey{
         case id
-        case title
+        case title = "name"
         case cost
-        case productImageName
+        case productImageName = "url"
         case productDescription
         case sellerDescription
     }

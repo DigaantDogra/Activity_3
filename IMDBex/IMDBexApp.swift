@@ -11,7 +11,6 @@ import SwiftUI
 struct IMDBexApp: App {
     var body: some Scene {
         WindowGroup {
-//            StartTab()
             Home()
         }
     }
